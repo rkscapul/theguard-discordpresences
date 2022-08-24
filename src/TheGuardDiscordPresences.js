@@ -16,6 +16,10 @@ export class TheGuardDiscordPresences {
 	}
 
 	setup () {
+		web.get('/', (req, res) => {
+			res.send({ message: 'Hello from The Inbetween' });
+		});
+
 		this._setupGetActiveGroups();
 		this._setupGetInactiveGroups();
 		this._setupGetAllGroups();
