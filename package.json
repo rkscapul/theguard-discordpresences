@@ -5,7 +5,6 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "build": "npm i",
     "start": "npm run sp",
     "sp": "NODE_ENV=production node src/index.js",
     "sd": "npx heroku local -e .env.development -f Procfile.development",
