@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "sp": "npx cross-env NODE_ENV=production node src/index.js",
+    "sp": "NODE_ENV=production node src/index.js",
     "sd": "npx heroku local -e .env.development -f Procfile.development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
