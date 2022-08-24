@@ -13,7 +13,6 @@ import { TheGuardDiscordPresences } from './TheGuardDiscordPresences.js';
 
 import { TGDPViewer } from './interface/viewer/TGDPViewer.js';
 
-console.log(process.env.PORT_G);
 printHeader();
 
 getSecrets().then(values => {
