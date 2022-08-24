@@ -19,5 +19,19 @@
   "bugs": {
     "url": "https://github.com/rkscapul/theguard-discordpresences/issues"
   },
+  "dependencies": {
+    "aws-sdk": "^2.1198.0",
+    "date-and-time": "^2.4.1",
+    "express.js": "^1.0.0",
+    "knex": "^2.2.0",
+    "pg": "^8.7.3",
+    "webhook-discord": "^3.7.8"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "custom-env": "^2.0.1",
+    "nodemon": "^2.0.19",
+    "rimraf": "^3.0.2"
+  },
   "homepage": "https://github.com/rkscapul/theguard-discordpresences#readme"
 }
