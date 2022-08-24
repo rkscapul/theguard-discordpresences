@@ -1,0 +1,22 @@
+{
+  "name": "theguard-discordpresences",
+  "version": "0.0.1",
+  "description": "Presence values for The Guard Discord Bot",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "sp": "npx cross-env NODE_ENV=production node src/index.js",
+    "sd": "npx heroku local -e .env.development -f Procfile.development",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rkscapul/theguard-discordpresences.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rkscapul/theguard-discordpresences/issues"
+  },
+  "homepage": "https://github.com/rkscapul/theguard-discordpresences#readme"
+}
