@@ -18,7 +18,7 @@ printHeader();
 getSecrets().then(values => {
 	const database = new DBController({ connectionString: values.PRESENCE_DB })
 
-	const tgdpViewer = new TGDPViewer(logging, database.getConfig());
+	const tgdpViewer = new TGDPViewer(logging, database);
 	
 	const theGuardDiscordPresences = new TheGuardDiscordPresences(logging, {
 		tgdpViewer 

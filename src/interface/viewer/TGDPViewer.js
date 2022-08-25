@@ -13,31 +13,35 @@ export class TGDPViewer {
   }
 
   async getActiveGroups () {
-    return await this.database.transaction(async trx => {
+    const connection = this.database.getConfig();
+    return await connection.transaction(async trx => {
       const groups = await this.groups.getGroups(trx, true);
 
       return { code: 200, data: groups };
-    });
+    }).finally(() => connection.destroy());
   }
 
   async getInactiveGroups () {
-    return await this.database.transaction(async trx => {
+    const connection = this.database.getConfig();
+    return await connection.transaction(async trx => {
       const groups = await this.groups.getGroups(trx, false);
     
       return { code: 200, data: groups };
-    });
+    }).finally(() => connection.destroy());
   }
 
   async getAllGroups () {
-    return await this.database.transaction(async trx => {
+    const connection = this.database.getConfig();
+    return await connection.transaction(async trx => {
       const groups = await this.groups.getAllGroups(trx);
     
       return { code: 200, data: groups };
-    });
+    }).finally(() => connection.destroy());
   }
 
   async getAllMembersByGroupCodeSimplified ( groupCode, includeInactive ) {
-    const transactionProvider = this.database.transactionProvider()
+    const connection = this.database.getConfig();
+    const transactionProvider = connection.transactionProvider()
     
     const groupsTrx = await transactionProvider();
     const group = await this.groups.getGroupFullDetailsByCode(groupsTrx, groupCode);
@@ -49,6 +53,8 @@ export class TGDPViewer {
     const valuesTrx = await transactionProvider();
     const values = await this.values.getValueNames(valuesTrx, valueIds);
   
+    connection.destroy();
+
     return {
       code: 200,
       data: this.formatFinalGroupMemberPayloadSimplified(group[0], values),
@@ -57,8 +63,8 @@ export class TGDPViewer {
 
   formatFinalGroupMemberPayloadSimplified(group, values) {
     const members = values.map(data => { return data.name });
-    const { activity, groupCode, groupName } = group;
+    const { activity, groupCode, groupName, randomize } = group;
 
-    return { activity, groupCode, groupName, members };
+    return { activity, groupCode, groupName, members, randomize };
   }
 }

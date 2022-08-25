@@ -4,6 +4,7 @@ export const GroupModel = {
   groupCode: 'group_code',
   groupName: 'group_name',
   active: 'active',
+  randomize: 'randomize',
 };
 
 export const GroupFullModel = {
